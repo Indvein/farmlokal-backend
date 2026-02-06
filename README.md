@@ -49,15 +49,11 @@ Redis instance (Local or Cloud)
 Environment Configuration
 Create a .env file in the root directory with the following variables:
 
-PORT=3000
+PORT=10000
 
-DB_HOST=127.0.0.1
+DB_CA=certification
 
-DB_USER=root
-
-DB_PASSWORD= password
-
-DB_NAME=farmlokal
+MYSQL_URL=mysqlurl
 
 REDIS_URL=redis://url
 
