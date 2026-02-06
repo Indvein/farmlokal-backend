@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { db } from '../config/db';
+import { pool } from '../config/db';
 export const getProducts = async (req: Request, res: Response) => {
     try {
         console.log("🔍 Request received..."); 
@@ -27,7 +27,7 @@ export const getProducts = async (req: Request, res: Response) => {
         const limitNum = parseInt(limit as string) || 10;
         params.push(limitNum);
 
-        const [rows]: any = await db.query(sql, params);
+        const [rows]: any = await pool.query(sql, params);
 
         console.log(`Success! Found ${rows.length} products.`);
 

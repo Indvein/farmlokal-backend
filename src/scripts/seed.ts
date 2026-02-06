@@ -1,4 +1,4 @@
-import { db } from '../config/db';
+import { pool } from '../config/db';
 import { faker } from '@faker-js/faker';
 
 const seedDatabase = async () => {
@@ -21,7 +21,7 @@ const seedDatabase = async () => {
             }
 
             const sql = `INSERT INTO products (name, description, price, category) VALUES ${values.join(',')}`;
-            await db.execute(sql);
+            await pool.execute(sql);
             console.log(`Inserted ${i + BATCH_SIZE} records...`);
         }
 

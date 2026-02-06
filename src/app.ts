@@ -1,8 +1,10 @@
 import express from 'express';
 import productRoutes from './routes/productRoutes';
 import { getAccessToken } from './services/authService'; 
-import { fetchOrderDetails } from './services/externalApiService'; // <--- NEW IMPORT
-import { handleWebhook } from './controllers/webhookController'; // Import it
+import { fetchOrderDetails } from './services/externalApiService'; 
+import { handleWebhook } from './controllers/webhookController';
+import dotenv from "dotenv";
+dotenv.config()
 
 
 const app = express();
@@ -27,5 +29,5 @@ app.use('/api', productRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on :${process.env.MYSQL_URL}`);
 });
